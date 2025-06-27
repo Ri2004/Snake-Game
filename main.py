@@ -50,7 +50,7 @@ while game_is_on:
         # if segment != snake.head and snake.head.distance(segment) < 10:
         #     game_is_on = False
         #     score_board.game_over()
-        
+
         # check with slicing, remove one extra check
         if snake.head.distance(segment) < 10:
             game_is_on = False
