@@ -46,8 +46,13 @@ while game_is_on:
 
     # Detect collision with tail
     # if snake head hit its own tail then game is over
-    for segment in snake.segments:
-        if segment != snake.head and snake.head.distance(segment) < 10:
+    for segment in snake.segments[1:]:
+        # if segment != snake.head and snake.head.distance(segment) < 10:
+        #     game_is_on = False
+        #     score_board.game_over()
+        
+        # check with slicing, remove one extra check
+        if snake.head.distance(segment) < 10:
             game_is_on = False
             score_board.game_over()
 
