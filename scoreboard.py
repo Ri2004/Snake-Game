@@ -23,10 +23,6 @@ class ScoreBoard(Turtle):
     # update the update_score() method, to display high score
     def update_score(self):
         self.clear()
-
-        with open(file = "score.txt", mode = "w") as file:
-            file.write(str(self.high_score))
-
         self.write(arg = f"Score: {self.score} High Score: {self.high_score}", align = ALIGNMENT, font = FONT)
 
     # def game_over(self):
@@ -37,6 +33,8 @@ class ScoreBoard(Turtle):
     def reset(self):
         if self.score > self.high_score:
             self.high_score = self.score
+            with open(file="score.txt", mode="w") as file:
+                file.write(str(self.high_score))
 
         self.score = 0
         self.update_score()
