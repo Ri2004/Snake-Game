@@ -28,6 +28,16 @@ class Snake:
         new_segment.goto(position)
         self.segments.append(new_segment)
 
+    # reset() method is use to when snake hits on wall, or its own tail, then move the segments of snake body out of screen co-ordinate, and create new snake body
+    # created at first time of starting game with 3 segments, and set head of snake to first segment
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(x = 1000, y = 1000)
+
+        self.segments.clear() # clear the screen so no segment of snake is present
+        self.create_snake()
+        self.head = self.segments[0]  # Create a separate variable because first segment always needed to set heading for movement of snake
+
     def extend(self):
         """
         Add a new segment to the snake

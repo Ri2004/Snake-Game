@@ -41,8 +41,8 @@ while game_is_on:
 
     # Detect collision with wall
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-        game_is_on = False
-        score_board.game_over()
+        score_board.reset()
+        snake.reset() # if snake collide with wall, then reset the whole game, so previous snake is disappeared, and new snake is created
 
     # Detect collision with tail
     # if snake head hit its own tail then game is over
@@ -53,7 +53,7 @@ while game_is_on:
 
         # check with slicing, remove one extra check
         if snake.head.distance(segment) < 10:
-            game_is_on = False
-            score_board.game_over()
+            score_board.reset()
+            snake.reset() # same for when snake collide with its own tail or body
 
 screen.exitonclick()
